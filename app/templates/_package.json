@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AppGyver/<%= name %>.git"
+    "url": "<%= github %>/<%= name %>.git"
   },
   "keywords": [],
   "author": "<%= author %>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AppGyver/<%= name %>/issues"
+    "url": "<%= github %>/<%= name %>/issues"
   },
-  "homepage": "https://github.com/AppGyver/<%= name %>",
+  "homepage": "<%= github %>/<%= name %>",
   "devDependencies": {}
 }

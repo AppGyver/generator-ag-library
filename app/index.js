@@ -71,6 +71,12 @@ AgGenerator.prototype.promptName = function promptName() {
     },
     {
       type: 'input',
+      name: 'github',
+      message: 'github root url',
+      default: 'https://github.com/AppGyver'
+    },
+    {
+      type: 'input',
       name: 'author',
       message: 'library author',
       default: this.gitUserName + ' <' + this.gitUserEmail + '>'
