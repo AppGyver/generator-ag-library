@@ -40,11 +40,12 @@ AgGenerator.prototype.app = function app() {
   this.mkdir('app');
   this.mkdir('app/templates');
 
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
+  this.template('_package.json', 'package.json');
+  this.template('_README.md', 'README.md');
 };
 
 AgGenerator.prototype.projectfiles = function projectfiles() {
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
+  this.copy('Gruntfile.coffee', 'Gruntfile.coffee');
+  this.copy('coffeelint.json', 'coffeelint.json');
+  this.copy('LICENSE', 'LICENSE');
 };
