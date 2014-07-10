@@ -6,6 +6,8 @@ var helpers = require('yeoman-generator').test;
 
 
 describe('ag-library generator', function () {
+    this.timeout(10000);
+    
     beforeEach(function (done) {
         helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
             if (err) {
@@ -32,7 +34,9 @@ describe('ag-library generator', function () {
         ];
 
         helpers.mockPrompt(this.app, {
-            'someOption': true
+            'name': 'mockApp',
+            'description': 'mock description',
+            'author': 'anonymous'
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {

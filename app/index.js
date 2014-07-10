@@ -25,7 +25,7 @@ function readLine(cmd, cb) {
     if (error) {
       throw error;
     }
-    cb(stdout.replace(/^\s+|\s+$/g, ''));
+    cb((stdout || '').replace(/^\s+|\s+$/g, ''));
   });
 }
 
