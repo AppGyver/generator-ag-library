@@ -16,23 +16,29 @@ var AgGenerator = module.exports = function AgGenerator(args, options, config) {
 
 util.inherits(AgGenerator, yeoman.generators.Base);
 
-AgGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
+AgGenerator.prototype.promptName = function promptName() {
+  var done = this.async();
 
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
-
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
-  }];
-
-  this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
-
-    cb();
+  this.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'library name (same as github repository name)',
+      default: this.appname
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: 'library description'
+    },
+    {
+      type: 'input',
+      name: 'author',
+      message: 'library author'
+    }
+  ], function (answers) {
+    this.libraryDescription = answers
+    done();
   }.bind(this));
 };
 
@@ -40,8 +46,8 @@ AgGenerator.prototype.app = function app() {
   this.mkdir('app');
   this.mkdir('app/templates');
 
-  this.template('_package.json', 'package.json');
-  this.template('_README.md', 'README.md');
+  this.template('_package.json', 'package.json', this.libraryDescription);
+  this.template('_README.md', 'README.md', this.libraryDescription);
 };
 
 AgGenerator.prototype.projectfiles = function projectfiles() {
