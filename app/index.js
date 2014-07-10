@@ -23,7 +23,7 @@ util.inherits(AgGenerator, yeoman.generators.Base);
 function readLine(cmd, cb) {
   exec(cmd, function(error, stdout, stderr) {
     if (error) {
-      throw error;
+      throw new Error("Command " + cmd + " failed: " + error.message);
     }
     cb((stdout || '').replace(/^\s+|\s+$/g, ''));
   });
