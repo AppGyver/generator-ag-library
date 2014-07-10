@@ -1,21 +1,21 @@
 {
-  "name": "generator-ag",
+  "name": "generator-ag-library",
   "version": "0.0.0",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/Ezku/generator-ag",
-  "bugs": "https://github.com/Ezku/generator-ag/issues",
+  "homepage": "https://github.com/AppGyver/generator-ag-library",
+  "bugs": "https://github.com/AppGyver/generator-ag-library/issues",
   "author": {
     "name": "Eevert Saukkokoski",
-    "email": "",
-    "url": "https://github.com/Ezku"
+    "email": "eevert.saukkokoski@appgyver.com",
+    "url": "https://github.com/AppGyver"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Ezku/generator-ag.git"
+    "url": "git://github.com/AppGyver/generator-ag-library.git"
   },
   "scripts": {
     "test": "mocha"

@@ -5,14 +5,14 @@ var path    = require('path');
 var helpers = require('yeoman-generator').test;
 
 
-describe('ag generator', function () {
+describe('ag-library generator', function () {
     beforeEach(function (done) {
         helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
             if (err) {
                 return done(err);
             }
 
-            this.app = helpers.createGenerator('ag:app', [
+            this.app = helpers.createGenerator('ag-library:app', [
                 '../../app'
             ]);
             done();
