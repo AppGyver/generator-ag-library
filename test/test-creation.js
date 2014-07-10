@@ -7,7 +7,7 @@ var helpers = require('yeoman-generator').test;
 
 describe('ag-library generator', function () {
     this.timeout(10000);
-    
+
     beforeEach(function (done) {
         helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
             if (err) {
@@ -28,6 +28,7 @@ describe('ag-library generator', function () {
             'README.md',
             'coffeelint.json',
             '.gitignore',
+            '.travis.yml',
             'Gruntfile.coffee',
             'LICENSE',
             'test/SmokeTestSpec.coffee'
