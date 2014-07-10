@@ -22,8 +22,13 @@ describe('ag-library generator', function () {
     it('creates expected files', function (done) {
         var expected = [
             // add files you expect to exist here.
-            '.jshintrc',
-            '.editorconfig'
+            'package.json',
+            'README.md',
+            'coffeelint.json',
+            '.gitignore',
+            'Gruntfile.coffee',
+            'LICENSE',
+            'test/SmokeTestSpec.coffee'
         ];
 
         helpers.mockPrompt(this.app, {
