@@ -23,16 +23,19 @@ util.inherits(AgGenerator, yeoman.generators.Base);
 function readLine(cmd, cb) {
   exec(cmd, function(error, stdout, stderr) {
     if (error) {
-      throw new Error("Command " + cmd + " failed: " + error.message);
+      cb(new Error("Command " + cmd + " failed: " + error.message));
     }
-    cb((stdout || '').replace(/^\s+|\s+$/g, ''));
+    cb(null, (stdout || '').replace(/^\s+|\s+$/g, ''));
   });
 }
 
 AgGenerator.prototype.fetchGitUserName = function fetchGitUserName() {
   var done = this.async();
 
-  readLine('git config user.name', function(name) {
+  readLine('git config user.name', function(err, name) {
+    if (err) {
+      name = 'anonymous';
+    }
     this.gitUserName = name;
     done();
   }.bind(this));
@@ -41,7 +44,10 @@ AgGenerator.prototype.fetchGitUserName = function fetchGitUserName() {
 AgGenerator.prototype.fetchGitEmail = function fetchGitEmail() {
   var done = this.async();
 
-  readLine('git config user.email', function(email) {
+  readLine('git config user.email', function(err, email) {
+    if (err) {
+      email = 'anon@example.com';
+    }
     this.gitUserEmail = email;
     done();
   }.bind(this));
