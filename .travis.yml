@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
 before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-ag-library' ]; then cd .. && eval "mv $currentfolder generator-ag-library" && cd generator-ag-library; fi
-
+- currentfolder=${PWD##*/}
+- if [ "$currentfolder" != 'generator-ag-library' ]; then cd .. && eval "mv $currentfolder
+  generator-ag-library" && cd generator-ag-library; fi
+deploy:
+  provider: npm
+  email: eevert.saukkokoski@appgyver.com
+  api_key:
+    secure: dAJtuv5UdOWD+jQIZWP6z9gKTISLl1Ij3DjOrR/Zswz2nOvRBfnDmMFjWp5bQvsqQkheNE4Jf0DvSTaAMRVClaoWwixat84iid2XRJDV734SB+/ykt3REY5YRL1px9OSdo7su1MtbOMeeILL6yZCRShl+DtKVkcCBXl/O5/6Xk0=
+  on:
+    tags: true
+    repo: AppGyver/generator-ag-library
