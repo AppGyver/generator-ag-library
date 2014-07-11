@@ -11,6 +11,6 @@ deploy:
   api_key:
     secure: dAJtuv5UdOWD+jQIZWP6z9gKTISLl1Ij3DjOrR/Zswz2nOvRBfnDmMFjWp5bQvsqQkheNE4Jf0DvSTaAMRVClaoWwixat84iid2XRJDV734SB+/ykt3REY5YRL1px9OSdo7su1MtbOMeeILL6yZCRShl+DtKVkcCBXl/O5/6Xk0=
   on:
-    branch: master
     tags: true
+    all_branches: true
     repo: AppGyver/generator-ag-library
