@@ -104,6 +104,7 @@ AgGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('gitignore', '.gitignore');
   this.copy('travis.yml', '.travis.yml');
   this.copy('coffeelint.json', 'coffeelint.json');
+  this.copy('env.json', 'env.json');
   this.copy('LICENSE', 'LICENSE');
 };
 
@@ -120,7 +121,8 @@ AgGenerator.prototype.setupGruntFlow = function setupGruntFlow() {
     "grunt-contrib-coffee",
     "grunt-contrib-watch",
     "load-grunt-config",
-    "load-grunt-tasks"
+    "load-grunt-tasks",
+    "grunt-env"
   ], { 'saveDev': true }, done);
 };
 
