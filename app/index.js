@@ -20,50 +20,49 @@ var AgGenerator = module.exports = function AgGenerator(args, options, config) {
 
 util.inherits(AgGenerator, yeoman.generators.Base);
 
-function readLine(cmd, cb) {
-  exec(cmd, function(error, stdout, stderr) {
-    if (error) {
-      cb(new Error("Command " + cmd + " failed: " + error.message));
-    }
-    cb(null, (stdout || '').replace(/^\s+|\s+$/g, ''));
-  });
-}
+var fetchInto = function(property, command) {
+  var defaults = {
+    'gitUserName': 'anonymous',
+    'gitUserEmail': 'anon@example.com',
+    'githubProjectOrg': 'AppGyver'
+  };
 
-AgGenerator.prototype.fetchGitUserName = function fetchGitUserName() {
-  var done = this.async();
+  function readLine(cmd, cb) {
+    exec(cmd, function(error, stdout, stderr) {
+      if (error) {
+        cb(new Error("Command " + cmd + " failed: " + error.message));
+      }
+      cb(null, (stdout || '').replace(/^\s+|\s+$/g, ''));
+    });
+  }
 
-  readLine('git config user.name', function(err, name) {
-    if (err) {
-      name = 'anonymous';
-    }
-    this.gitUserName = name;
-    done();
-  }.bind(this));
+  return function() {
+    var done = this.async();
+
+    readLine(command, function(err, result) {
+      if (err || !result.length) {
+        result = defaults[property];
+      }
+      this[property] = result;
+      done();
+    }.bind(this));
+  };
 };
 
-AgGenerator.prototype.fetchGitEmail = function fetchGitEmail() {
-  var done = this.async();
+AgGenerator.prototype.fetchGitUserName = fetchInto(
+  'gitUserName',
+  'git config user.name'
+);
 
-  readLine('git config user.email', function(err, email) {
-    if (err) {
-      email = 'anon@example.com';
-    }
-    this.gitUserEmail = email;
-    done();
-  }.bind(this));
-};
+AgGenerator.prototype.fetchGitEmail = fetchInto(
+  'gitUserEmail',
+  'git config user.email'
+);
 
-AgGenerator.prototype.fetchProjectGithubOrg = function fetchGitEmail() {
-  var done = this.async();
-
-  readLine('git remote -v | grep origin | tail -n 1 | cut -d: -f2 | cut -d/ -f1', function(err, org) {
-    if (err || !org.length) {
-      org = 'AppGyver';
-    }
-    this.githubProjectOrg = org;
-    done();
-  }.bind(this));
-};
+AgGenerator.prototype.fetchProjectGithubOrg = fetchInto(
+  'githubProjectOrg',
+  'git remote -v | grep origin | tail -n 1 | cut -d: -f2 | cut -d/ -f1'
+);
 
 AgGenerator.prototype.promptName = function promptName() {
   var done = this.async();
