@@ -1,5 +1,5 @@
 require('chai').should()
 
-describe "<%= name %>", ->
-  it "should be an object", ->
-    require('../src/<%= main %>').should.be.an.object
+describe "<%= project %> root", ->
+  it "should be defined", ->
+    require('../src/<%= main %>').should.exist

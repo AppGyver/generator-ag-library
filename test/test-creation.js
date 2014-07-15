@@ -36,10 +36,10 @@ describe('ag-library generator', function () {
         ];
 
         helpers.mockPrompt(this.app, {
-            'name': 'mockApp',
+            'project': 'mockApp',
+            'organization': 'mockorg',
             'description': 'mock description',
-            'author': 'anonymous',
-            'github': 'https://example.com/mockorg'
+            'author': 'anonymous'
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {

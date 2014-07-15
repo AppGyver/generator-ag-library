@@ -53,27 +53,39 @@ AgGenerator.prototype.fetchGitEmail = function fetchGitEmail() {
   }.bind(this));
 };
 
+AgGenerator.prototype.fetchProjectGithubOrg = function fetchGitEmail() {
+  var done = this.async();
+
+  readLine('git remote -v | grep origin | tail -n 1 | cut -d: -f2 | cut -d/ -f1', function(err, org) {
+    if (err || !org.length) {
+      org = 'AppGyver';
+    }
+    this.githubProjectOrg = org;
+    done();
+  }.bind(this));
+};
+
 AgGenerator.prototype.promptName = function promptName() {
   var done = this.async();
 
   this.prompt([
     {
       type: 'input',
-      name: 'name',
-      message: 'library name (same as github repository name)',
+      name: 'project',
+      message: 'github project name',
       default: this.appname
+    },
+    {
+      type: 'input',
+      name: 'organization',
+      message: 'github organization name',
+      default: this.githubProjectOrg
     },
     {
       type: 'input',
       name: 'description',
       message: 'library description',
       default: this.appname + ' npm library'
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'github root url',
-      default: 'https://github.com/AppGyver'
     },
     {
       type: 'input',
@@ -88,7 +100,7 @@ AgGenerator.prototype.promptName = function promptName() {
 };
 
 function createLibraryDescription(answers) {
-  answers.main = answers.name.replace('-', '/');
+  answers.main = answers.project.replace('-', '/');
   return answers;
 };
 
