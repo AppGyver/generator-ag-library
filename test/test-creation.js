@@ -39,7 +39,8 @@ describe('ag-library generator', function () {
             'project': 'mockApp',
             'organization': 'mockorg',
             'description': 'mock description',
-            'author': 'anonymous'
+            'username': 'anonymous',
+            'email': 'anon@example.com'
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {

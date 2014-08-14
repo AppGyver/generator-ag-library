@@ -64,7 +64,7 @@ AgGenerator.prototype.fetchProjectGithubOrg = fetchInto(
   'git remote -v | grep origin | tail -n 1 | cut -d: -f2 | cut -d/ -f1'
 );
 
-AgGenerator.prototype.promptName = function promptName() {
+AgGenerator.prototype.promptProjectInformation = function promptProjectInformation() {
   var done = this.async();
 
   this.prompt([
@@ -88,9 +88,15 @@ AgGenerator.prototype.promptName = function promptName() {
     },
     {
       type: 'input',
-      name: 'author',
-      message: 'library author',
-      default: this.gitUserName + ' <' + this.gitUserEmail + '>'
+      name: 'username',
+      message: 'library author name',
+      default: this.gitUserName
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'library author email address',
+      default: this.gitUserEmail
     }
   ], function (answers) {
     this.libraryDescription = createLibraryDescription(answers);
@@ -100,6 +106,7 @@ AgGenerator.prototype.promptName = function promptName() {
 
 function createLibraryDescription(answers) {
   answers.main = answers.project.replace('-', '/');
+  answers.author = answers.username + ' <' + answers.email + '>';
   return answers;
 };
 
@@ -111,9 +118,9 @@ AgGenerator.prototype.app = function app() {
 AgGenerator.prototype.projectfiles = function projectfiles() {
   this.template('_package.json', 'package.json', this.libraryDescription);
   this.template('_README.md', 'README.md', this.libraryDescription);
+  this.template('_travis.yml', '.travis.yml', this.libraryDescription);
 
   this.copy('gitignore', '.gitignore');
-  this.copy('travis.yml', '.travis.yml');
   this.copy('coffeelint.json', 'coffeelint.json');
   this.copy('env.json', 'env.json');
   this.copy('LICENSE', 'LICENSE');
