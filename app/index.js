@@ -144,6 +144,7 @@ AgGenerator.prototype.setupTestFlow = function setupTestFlow() {
 
   this.npmInstall([
     "chai",
-    "grunt-mocha-test"
+    "grunt-mocha-cov",
+    "coffee-script"
   ], { 'saveDev': true }, done);
 };

@@ -18,5 +18,12 @@
     "url": "https://github.com/<%= organization %>/<%= project %>/issues"
   },
   "homepage": "https://github.com/<%= organization %>/<%= project %>",
-  "devDependencies": {}
+  "devDependencies": {},
+  "config": {
+    "blanket": {
+      "pattern": "src",
+      "data-cover-never": "node_modules",
+      "loader": "./node-loaders/coffee-script"
+    }
+  }
 }
