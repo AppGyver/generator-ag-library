@@ -6,7 +6,7 @@ var helpers = require('yeoman-generator').test;
 
 
 describe('ag-library generator', function () {
-    this.timeout(10000);
+    this.timeout(20000);
 
     beforeEach(function (done) {
         helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
