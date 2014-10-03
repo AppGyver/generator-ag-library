@@ -121,6 +121,7 @@ AgGenerator.prototype.projectfiles = function projectfiles() {
   this.template('_travis.yml', '.travis.yml', this.libraryDescription);
 
   this.copy('gitignore', '.gitignore');
+  this.copy('npmignore', '.npmignore');
   this.copy('coffeelint.json', 'coffeelint.json');
   this.copy('env.json', 'env.json');
   this.copy('LICENSE', 'LICENSE');

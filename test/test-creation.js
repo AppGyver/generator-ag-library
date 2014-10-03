@@ -29,6 +29,7 @@ describe('ag-library generator', function () {
             'coffeelint.json',
             'env.json',
             '.gitignore',
+            '.npmignore',
             '.travis.yml',
             'Gruntfile.coffee',
             'LICENSE',
