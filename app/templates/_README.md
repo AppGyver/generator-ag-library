@@ -22,7 +22,7 @@ If you intend to set up continuous deployment or code coverage reports, the Trav
 
 The project is configured for deployment to npm on successfully building, tagged commits. You'll only need to provide your npm api key for Travis to work its magic.
 
-    cat ~/.npmrc | grep '_auth' | awk -F ' = ' '{print $2}' | travis encrypt --add deploy.api_key
+    cat ~/.npmrc | grep '_auth' | awk -F ' = ' '{print $2}' | travis encrypt deploy.api_key --add --no-interactive
 
 This reads the key from your .npmrc file and saves it to the travis configuration.
 
