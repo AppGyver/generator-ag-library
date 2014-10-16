@@ -64,6 +64,12 @@ AgGenerator.prototype.fetchProjectGithubOrg = fetchInto(
   'git remote -v | grep origin | tail -n 1 | cut -d: -f2 | cut -d/ -f1'
 );
 
+AgGenerator.prototype.fetchProjectGithubRepo = fetchInto(
+  'githubProjectRepo',
+  'git remote -v | grep origin | tail -n 1 | cut -d: -f2 | cut -d/ -f2 | cut -d. -f1'
+);
+
+
 AgGenerator.prototype.promptProjectInformation = function promptProjectInformation() {
   var done = this.async();
 
@@ -72,7 +78,7 @@ AgGenerator.prototype.promptProjectInformation = function promptProjectInformati
       type: 'input',
       name: 'project',
       message: 'github project name',
-      default: this.appname
+      default: this.githubProjectRepo || this.appname
     },
     {
       type: 'input',
