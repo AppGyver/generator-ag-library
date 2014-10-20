@@ -5,7 +5,6 @@ module.exports =
       '<%= files.test %>'
     ]
     tasks: [
-      'coffeelint'
       'test'
     ]
 
@@ -14,6 +13,5 @@ module.exports =
       '<%= files.src %>'
     ]
     tasks: [
-      'coffeelint'
       'compile'
     ]

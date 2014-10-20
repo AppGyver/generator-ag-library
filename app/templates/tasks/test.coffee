@@ -8,5 +8,6 @@ module.exports = (grunt) ->
       timeout: grunt.option('timeout')
 
     grunt.task.run [
+      'coffeelint'
       'mochacov:dev'
     ]
