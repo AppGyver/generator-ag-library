@@ -111,7 +111,7 @@ AgGenerator.prototype.promptProjectInformation = function promptProjectInformati
 };
 
 function createLibraryDescription(answers) {
-  answers.main = answers.project.replace(/-/g, '/');
+  answers.main = 'index';
   answers.author = answers.username + ' <' + answers.email + '>';
   return answers;
 };

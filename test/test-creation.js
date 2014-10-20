@@ -33,7 +33,8 @@ describe('ag-library generator', function () {
             '.travis.yml',
             'Gruntfile.coffee',
             'LICENSE',
-            'test/SmokeTestSpec.coffee'
+            'test/SmokeTestSpec.coffee',
+            'src/index.coffee'
         ];
 
         helpers.mockPrompt(this.app, {
