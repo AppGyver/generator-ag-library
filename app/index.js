@@ -78,7 +78,7 @@ AgGenerator.prototype.promptProjectInformation = function promptProjectInformati
       type: 'input',
       name: 'project',
       message: 'github project name',
-      default: this.githubProjectRepo || this.appname
+      default: this.githubProjectRepo || this.appname.replace(/\s/, '-')
     },
     {
       type: 'input',
