@@ -7,9 +7,9 @@ before_install:
   generator-ag-library" && cd generator-ag-library; fi
 deploy:
   provider: npm
-  email: eevert.saukkokoski@appgyver.com
+  email: hostmaster+npm@appgyver.com
   api_key:
-    secure: dAJtuv5UdOWD+jQIZWP6z9gKTISLl1Ij3DjOrR/Zswz2nOvRBfnDmMFjWp5bQvsqQkheNE4Jf0DvSTaAMRVClaoWwixat84iid2XRJDV734SB+/ykt3REY5YRL1px9OSdo7su1MtbOMeeILL6yZCRShl+DtKVkcCBXl/O5/6Xk0=
+    secure: h4cYAUKed7hJt7s68MCILqQ208ufpKkSHvgg+HT9NRT7itUdFkq5FMItUeDTw0IIeVhH3i+k9P3wR7HP6rWurUA+dDy5rN52RJvqRr0sZQEEQ2NldWHT7643sx5oNZ6hMqKyGCSo7Fd/PwVqFBTYrdUW9OeoYa/+CdnELSHb/D0=
   on:
     tags: true
     all_branches: true
