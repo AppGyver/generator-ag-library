@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 before_install:
+- npm install -g npm
 - currentfolder=${PWD##*/}
 - if [ "$currentfolder" != 'generator-ag-library' ]; then cd .. && eval "mv $currentfolder
   generator-ag-library" && cd generator-ag-library; fi
