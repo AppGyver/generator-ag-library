@@ -9,7 +9,7 @@ deploy:
   provider: npm
   email: hostmaster+npm@appgyver.com
   api_key:
-    secure: h4cYAUKed7hJt7s68MCILqQ208ufpKkSHvgg+HT9NRT7itUdFkq5FMItUeDTw0IIeVhH3i+k9P3wR7HP6rWurUA+dDy5rN52RJvqRr0sZQEEQ2NldWHT7643sx5oNZ6hMqKyGCSo7Fd/PwVqFBTYrdUW9OeoYa/+CdnELSHb/D0=
+    secure: GhWFVzqb2WNUHMOmlBEXqYGD8dlzo3s+8nzwWh7PRPTkfNHoaUUBFJfwrudZsrszU9s7pcWEWH50Jc59x/+ens7owO9GtPsyBqL92m2b6AJb6EciZh/rYjh7CGwVO696GbQiyfW75MWrgOuA6IMZnvmj3dIIH/VoPHpX1vcYPE4=
   on:
     tags: true
     all_branches: true
