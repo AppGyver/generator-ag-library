@@ -9,6 +9,7 @@ before_install:
   generator-ag-library" && cd generator-ag-library; fi
 deploy:
   provider: npm
+  edge: true
   email: hostmaster+npm@appgyver.com
   api_key:
     secure: h4cYAUKed7hJt7s68MCILqQ208ufpKkSHvgg+HT9NRT7itUdFkq5FMItUeDTw0IIeVhH3i+k9P3wR7HP6rWurUA+dDy5rN52RJvqRr0sZQEEQ2NldWHT7643sx5oNZ6hMqKyGCSo7Fd/PwVqFBTYrdUW9OeoYa/+CdnELSHb/D0=
