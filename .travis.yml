@@ -12,7 +12,7 @@ deploy:
   edge: true
   email: hostmaster+npm@appgyver.com
   api_key:
-    secure: h4cYAUKed7hJt7s68MCILqQ208ufpKkSHvgg+HT9NRT7itUdFkq5FMItUeDTw0IIeVhH3i+k9P3wR7HP6rWurUA+dDy5rN52RJvqRr0sZQEEQ2NldWHT7643sx5oNZ6hMqKyGCSo7Fd/PwVqFBTYrdUW9OeoYa/+CdnELSHb/D0=
+    secure: Wg5LOi6EZkfHywExtphvhsKRT0UcuddO/099byWvesXZu/0c3322Lc95q+DDguYQkxklafjWVq8Kppisk0ulJT2Uswv+9qmlkuGgCSrnAGV9naYG87odaannnlWJJ3Uf7xG79Tbep8gWEYeGeObhp4vexfEOV8W5F6TBKtHH0WU=
   on:
     tags: true
     all_branches: true
